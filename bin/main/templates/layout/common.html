@@ -1,0 +1,18 @@
+<!-- (1)共通にしたいheadをfragment化する -->
+<head xmlns:th="http://www.thymeleaf.org" th:fragment="head(title,links,scripts)">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <!-- 共通で読み込むCSS -->
+  <link rel="stylesheet" type="text/css" href="/common/css/destyle.css">
+  <link rel="stylesheet" type="text/css" href="/common/css/common.css">
+  <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
+  <!-- 各View固有で読み込むもの -->
+  <th:block th:replace="${links} ?: _" />
+
+  <!-- 共通で読み込むJS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <!-- 各View固有で読み込むもの -->
+  <th:block th:replace="${scripts} ?: _" />
+  <!-- タイトルの定型 -->
+  <title th:text="${title}+' | 小学生のための計算 | CALC'"></title>
+</head>

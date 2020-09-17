@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="layout/common :: head('スピード計算',~{::link},~{::script})">
+    <title>算数をもっと得意に | </title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" th:href="@{/top/css/top.css}" />
+    <script type="text/javascript" th:src="@{/top/css/top.js}"></script>
+  </head>
+  <body>
+    <header th:replace="layout/header"></header>
+    <div class="main_message">
+      <section>
+        <h1>算数をもっと得意に</h1>
+        <p>
+          小学生の計算をくりかえして、<br>
+          計算の力をアップさせましょう。
+        </p>
+      </section>
+    </div>
+    <div class="responsive_block">
+      <h1>挑戦するモードを選んでね。</h1>
+
+      <div class="menu_box">
+
+        <div class="menu addition">
+          <h2>足し算の練習</h2>
+          <a href="/tashizan">ふつうのたしざん</a>
+          <a href="/tashizan">たしざんをはやくする</a>
+          <a href="/tashizan">たしざんをいっぱいする</a>
+          <a href="/tashizan">たしざんをいっぱいはやくする</a>
+        </div>
+
+        <div class="menu subtraction">
+          <h2>引き算の練習</h2>
+          <a href="/hikizan">ふつうのひきざん</a>
+          <a href="/hikizan">ひきざんをはやくする</a>
+          <a href="/hikizan">ひきざんをいっぱいする</a>
+          <a href="/hikizan">ひきざんをいっぱいはやくする</a>
+        </div>
+
+      </div>
+      <div class="regist_box" th:if="${userName==''}">
+        <span class="announce_regist">初めて遊ぶ人は名前を登録してね。</span>
+        <form action="/nameRegistration" method="POST">
+          <input type="text" class="form_input" id="name" name="name" value="">
+          <input type="submit" class="btn btn_registration" value="とうろく"/>
+        </form>
+      </div>
+      <h1 th:text="${userName}"></h1>
+
+    </div>
+  </body>
+</html>

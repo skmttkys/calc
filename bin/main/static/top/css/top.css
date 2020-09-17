@@ -1,0 +1,43 @@
+.main_message{
+  width: 100%;
+  margin: 2rem auto;
+  background: linear-gradient(#81d0da, #3ac0d1);
+  background: radial-gradient(#81d0da, #3ac0d1);
+/*   background-color: #81d0da; */
+  color: #fff;
+}
+.main_message h1{
+  display: block;
+  width: 90%;
+  margin:  0 auto;
+  font-size: 2rem;
+}
+.main_message p{
+  display: block;
+  width: 90%;
+  margin: 1rem auto;
+  padding: 0 1rem;
+}
+.responsive_block h1{
+  font-size: 1.6rem;
+}
+.menu_box{
+  margin: 1rem auto;
+}
+.menu_box h2{
+  font-size: 1.2rem;
+  margin: 1rem 0;
+}
+.addition,
+.subtraction{
+  display: block;
+  width: 50%;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+.menu a{
+  display: block;
+}
+.regist_box{
+  margin: 2rem auto;
+}

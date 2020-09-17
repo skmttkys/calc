@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="layout/common :: head('スピード計算',~{::link},~{::script})">
+    <title>足し算特訓 | </title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="/common/css/calc.css">
+    <script src="/common/js/calc.js"></script>
+    <script src="/tashizan/js/tashizan.js"></script>
+  </head>
+  <body>
+    <header th:replace="layout/header">
+
+    </header>
+    <div class="main_design">
+      <div class="rule_box">
+        <h2 class="rule_txt"></h2>
+      </div>
+
+
+      <div class="introduction_box">
+        <h2 class="heading_Introduction">本番か練習を選んでスタートを押してね。</h2>
+        <div class="menu_box">
+          <span class="start_main">本番</span>
+          <span class="start_practice">ちょっと練習</span>
+        </div>
+      </div>
+      <span class="btn btn_start">スタート</span>
+      <span class="add_num"></span>
+      <input type="tel" name="ans"  class="ans_box">
+      <span class="btn btn_next">次の数字</span>
+      <form action="/result" th:object="${additionModel}" method="POST">
+        <input type="hidden" th:field="*{ansArray}" id="ansArray">
+        <input type="hidden" th:field="*{correctArray}" id="correctArray">
+        <input type="hidden" name="type" id="type" value="addition">
+        <input type="hidden" th:field="*{mode}" id="mode">
+        <input type="submit" class="btn btn_finish" value="結果発表">
+      </form>
+
+    </div>
+  </body>
+</html>

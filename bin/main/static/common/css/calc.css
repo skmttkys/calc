@@ -1,0 +1,36 @@
+.btn,.ans_box{
+  display:none;
+}
+.btn{
+  width: 25%;
+  height: 3rem;
+  margin: 2rem auto 1rem;
+  padding: 0.75rem;
+  background-color: #f48c8c;
+  font-size: 1.5rem;
+  text-align: center;
+  border-radius: 1.5rem;
+}
+.ans_box{
+  width: 25%;
+  height: 3rem;
+  line-height: 3rem;
+  margin: 2rem auto 1rem;
+  padding:0 1rem;
+  background-color: #f3f3f3;
+  color: #68d9a9;
+  font-size: 1.5rem;
+  border-radius: 0.125rem;
+}
+.rule_box,.introduction_box{
+  display: block;
+  width: 90%;
+  margin: 0 auto;
+}
+.add_num{
+  display: block;
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 3rem;
+}
