@@ -11,6 +11,12 @@
 
   <!-- 共通で読み込むJS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <!--開発用
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  -->
+  <!--本番用
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+  -->
   <!-- 各View固有で読み込むもの -->
   <th:block th:replace="${scripts} ?: _" />
   <!-- タイトルの定型 -->

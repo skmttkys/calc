@@ -30,11 +30,15 @@ public class AdditionModel implements Serializable {
 	@Size(max = 500, message = "いいい")
 	private String type;
 
-	/** ゲームのモード：タイムアタック */
+	/** ゲームのモード：タイムアタックなど */
 	@Size(max = 500, message = "いいい")
 	private String mode;
 
-	/** ゲームのモード：タイムアタック */
+	/** ゲームの結果 */
+	@Size(max = 500, message = "")
+	private String result;
+
+	/** ゲームの結果に付随するメッセージ：正解や残念など */
 	@Size(max = 500, message = "")
 	private String resultMessage;
 }

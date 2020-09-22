@@ -5,37 +5,55 @@
     <meta charset="utf-8" />
     <link rel="stylesheet" type="text/css" href="/common/css/calc.css">
     <script src="/common/js/calc.js"></script>
-    <script src="/tashizan/js/tashizan.js"></script>
   </head>
   <body>
     <header th:replace="layout/header">
 
     </header>
     <div class="main_design">
+      <div>
+        <section>
+          <h1>連続足し算</h1>
+          <div class="game_mode_block active">
+            <p class="game_lead">挑戦するモードを選んでください。</p>
+            <div class="select_mode">
+              <label class="btn"><input type="radio" name="mode" th:value="${NORMAL}" class="game_mode" >ノーマル</label>
+              <label class="btn"><input type="radio" name="mode" th:value="${HARD}" class="game_mode" >ハード</label>
+              <label class="btn"><input type="radio" name="mode" th:value="${TIMEATTACK}" class="game_mode" >タイムアタック</label>
+            </div>
+          </div>
+        </section>
+      </div>
       <div class="rule_box">
         <h2 class="rule_txt"></h2>
       </div>
 
 
-      <div class="introduction_box">
+      <div class="introduction_box non_active">
         <h2 class="heading_Introduction">本番か練習を選んでスタートを押してね。</h2>
         <div class="menu_box">
-          <span class="start_main">本番</span>
-          <span class="start_practice">ちょっと練習</span>
+          <span class="btn start_main">本番</span>
+          <span class="btn start_practice">ちょっと練習</span>
         </div>
       </div>
-      <span class="btn btn_start">スタート</span>
-      <span class="add_num"></span>
-      <input type="tel" name="ans"  class="ans_box">
-      <span class="btn btn_next">次の数字</span>
-      <form action="/result" th:object="${additionModel}" method="POST">
-        <input type="hidden" th:field="*{ansArray}" id="ansArray">
-        <input type="hidden" th:field="*{correctArray}" id="correctArray">
-        <input type="hidden" name="type" id="type" value="addition">
-        <input type="hidden" th:field="*{mode}" id="mode">
-        <input type="submit" class="btn btn_finish" value="結果発表">
-      </form>
+      <div class="game_play_block non_active">
+        <span class="btn btn_start">スタート</span>
+        <span class="add_num"></span>
+        <input type="tel" name="ans"  class="ans_box">
+        <span class="btn btn_next non_active">次の数字</span>
+        <form action="/addition/result" th:object="${additionModel}" method="POST">
+          <input type="hidden" th:field="*{ansArray}" id="ansArray">
+          <input type="hidden" th:field="*{correctArray}" id="correctArray">
+          <input type="hidden" name="type" id="type" value="addition">
+          <input type="hidden" th:field="*{mode}" id="mode">
+          <input type="submit" class="btn btn_finish non_active" value="結果発表">
+        </form>
+      </div>
+      <div class="back_btn_block non_active">
+        <span class="back_btn btn">選び直す</span>
+      </div>
 
     </div>
+    <script src="/tashizan/js/tashizan.js" defer></script>
   </body>
 </html>

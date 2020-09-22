@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
   <head th:replace="layout/common :: head('スピード計算',~{::link},~{::script})">
     <link rel="stylesheet" type="text/css" href="/common/css/common.css">
-    <link rel="stylesheet" type="text/css" href="/top/css/top.css">
+    <link rel="stylesheet" type="text/css" href="/common/css/calc.css">
     <title>スピード計算 | </title>
     <meta charset="utf-8" />
   </head>
@@ -10,9 +10,16 @@
     <header th:replace="layout/header">
 
     </header>
-    <div class="responsive_block">
-      結果発表
-      <p th:text="${resultMessage}"></p>
+    <div class="main_design">
+      <section>
+        <h1>結果発表</h1>
+        <p class="result_message">
+          <span th:text="${resultMessage}" class="result_lead"></span>
+          <span th:if="${result}==${key.RESULT_FOR_CORRECT}">次はもっと早くできるか挑戦しよう</span>
+          <span th:if="${result}==${key.RESULT_FOR_INCORRECT}">次はまちがえずに計算できるように挑戦しよう</span>
+        </p>
+      </section>
+
     </div>
   </body>
 </html>

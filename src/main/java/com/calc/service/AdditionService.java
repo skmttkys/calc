@@ -1,5 +1,6 @@
 package com.calc.service;
 
+import com.calc.define.ModelKeyDefine;
 import com.calc.model.AdditionModel;
 
 /**
@@ -18,11 +19,14 @@ public class AdditionService {
 		Integer[] userAnsArray = additionModel.getAnsArray();
 		Integer[] correctAnsArray = additionModel.getCorrectArray();
 
-		String resultMessage = "だいせいかい";
+		String resultMessage = ModelKeyDefine.RESULT_MESSAGE_FOR_CORRECT;
+
 		additionModel.setResultMessage(resultMessage);
+		additionModel.setResult(ModelKeyDefine.RESULT_FOR_CORRECT);
 		for(int i=0; i<userAnsArray.length; i++){
 			if(userAnsArray[i]!=correctAnsArray[i]){
-				resultMessage = "ざんねん";
+				resultMessage = ModelKeyDefine.RESULT_MESSAGE_FOR_INCORRECT;
+				additionModel.setResult(ModelKeyDefine.RESULT_FOR_INCORRECT);
 				//答えが一致しなければ間違っている時のメッセージをセットする
 				additionModel.setResultMessage(resultMessage);
 				break;

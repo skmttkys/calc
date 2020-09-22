@@ -41,6 +41,7 @@ body{
 }
 
 .main_design{
+  padding: 2rem 0;
   background-color: #68d9a9;
   color: #f1f1f1;
 }

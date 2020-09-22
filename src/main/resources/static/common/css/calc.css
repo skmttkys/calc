@@ -1,6 +1,38 @@
-.btn,.ans_box{
-  display:none;
+h1{
+  height: 5rem;
+  padding: 0 0 1rem 1rem;
+  font-size: 3rem;
 }
+.game_lead{
+  padding: 1rem 0 1rem 1rem;
+  font-size: 1.2rem;
+}
+.game_mode_block{
+  display: none;
+}
+.select_mode{
+  display: flex;
+  width: 90%;
+  margin: 0 auto;
+}
+.select_mode label{
+  display: block;
+  width: 32%;
+  margin: 1rem auto;
+  height: 2rem;
+  line-height: 0.5rem;
+  background-color: #fff;
+  font-size: 0.8rem;
+  color: #f48c8c;
+}
+.select_mode input[type="radio"]{
+  appearance: none;
+}
+.select_mode label.active{
+  background-color: #f48c8c;
+  color: #fff;
+}
+
 .btn{
   width: 25%;
   height: 3rem;
@@ -11,6 +43,22 @@
   text-align: center;
   border-radius: 1.5rem;
 }
+.btn_start{
+  width: 50%;
+}
+.btn_next,
+.btn_finish{
+  display: block;
+  width: 50%;
+}
+.start_main,
+.start_practice{
+  display: block;
+  width: 45%;
+  font-size: 1.4rem;
+}
+
+
 .ans_box{
   width: 25%;
   height: 3rem;
@@ -27,10 +75,31 @@
   width: 90%;
   margin: 0 auto;
 }
+
 .add_num{
   display: block;
-  width: 50%;
+  width: 80%;
   margin: 0 auto;
   text-align: center;
   font-size: 3rem;
 }
+.active{
+  display: block;
+}
+.non_active{
+  display: none;
+}
+
+/*結果ページ start*/
+.result_message{
+  padding: 1rem;
+}
+.result_lead{
+  display: block;
+  font-size: 1rem;
+}
+
+
+
+
+/*結果ページ end*/
