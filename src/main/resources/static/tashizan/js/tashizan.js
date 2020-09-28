@@ -9,7 +9,7 @@ $(function(){
     $('.introduction_box').removeClass('non_active');
     $('.back_btn_block').removeClass('non_active');
     $('#mode').val($(this).val());
-console.log($('#mode').val());
+    $('.ans_box').val('');
   });
 
   let numberArrays;
@@ -40,14 +40,21 @@ console.log($('#mode').val());
   });
 
   let correctArray = [];
+  var timeObj = null;
   $('.btn_start').on('click',function(){
+    fadeOutNumber();
     $('.btn_start').addClass('non_active');
     $('.back_btn_block').addClass('non_active');
     var indexNumber = digIndexNumber(numberArrays);
     chosenNumber(numberArrays,0,indexNumber);
     correctArray.push(chosenNumber(numberArrays,0,indexNumber));
     arrayFilter(numberArrays,indexNumber);
-
+    if($('#mode').val()=='TIMEATTACK'){
+      $('.time_box').removeClass('non_active');
+      timeObj = setInterval("gameTimer()",100);
+      $('.time_box').fadeOut(3000);
+    }
+    fadeInNumber();
   });
 
   $('.ans_box').on('change',function(){
@@ -61,6 +68,8 @@ console.log($('#mode').val());
 
   let yourAnsArray = [];
   $('.btn_next').on('click',function(){
+    fadeInNumber();
+    fadeOutNumber();
     yourAnsArray.push(yourAns);
     if(numberArrays.length==0){
       $('.add_num').text('おしまい');
@@ -68,6 +77,11 @@ console.log($('#mode').val());
       $('#correctArray').val(correctArray);
       $('.btn_next').addClass('non_active');
       $('.btn_finish').removeClass('non_active');
+      if($('#mode').val()=='TIMEATTACK'){
+        clearInterval(timeObj);
+        timeObj = null;
+        $('#time').val($('.time_show').text());
+      }
       return
     }
     var indexNumber = digIndexNumber(numberArrays);
@@ -102,4 +116,27 @@ function chosenNumber(numberArrays,yourAns,indexNumber){
   var addNumber = numberArrays[indexNumber];
   $('.add_num').text(yourAns +' + '+addNumber+' は?');
   return addNumber;
+}
+function fadeOutNumber(){
+  if($('#mode').val()=='HARD'){
+    $('.add_num').stop(false, true).animate({opacity:0},{
+      duration: 2500
+    });
+  }
+}
+function fadeInNumber(){
+  if($('#mode').val()=='HARD'){
+    $('.add_num').stop(false, true).animate({opacity:1},{
+      duration: 100
+    });
+  }
+}
+var seed = 0;
+function gameTimer(){
+     seed += 1;
+     var milSec = seed % 10;
+     var sec = Math.floor(seed / 10) % 60;
+     var minute = Math.floor(seed / 600) % 60;
+
+     $(".time_show").text(('00' + minute).slice(-2) + "'" + ('00' + sec).slice(-2) + "''" + milSec);
 }

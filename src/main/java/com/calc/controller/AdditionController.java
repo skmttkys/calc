@@ -25,8 +25,11 @@ public class AdditionController {
       AdditionService service = new AdditionService();
       service.result(additionModel);
       model.addAttribute("key",new ModelKeyDefine());
+      model.addAttribute("type", additionModel.getType());
+      model.addAttribute("mode", additionModel.getMode());
       model.addAttribute("resultMessage", additionModel.getResultMessage());
       model.addAttribute("result", additionModel.getResult());
+      model.addAttribute("time", additionModel.getTime());
 
       return "/result/index";
     }

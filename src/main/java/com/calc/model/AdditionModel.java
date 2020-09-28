@@ -41,4 +41,8 @@ public class AdditionModel implements Serializable {
 	/** ゲームの結果に付随するメッセージ：正解や残念など */
 	@Size(max = 500, message = "")
 	private String resultMessage;
+
+	/** ゲームの結果 */
+	@Size(max = 500, message = "")
+	private String time;
 }

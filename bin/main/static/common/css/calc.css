@@ -19,10 +19,11 @@ h1{
   display: block;
   width: 32%;
   margin: 1rem auto;
+  padding: 0.75rem 0;
   height: 2rem;
   line-height: 0.5rem;
   background-color: #fff;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   color: #f48c8c;
 }
 .select_mode input[type="radio"]{
@@ -51,6 +52,10 @@ h1{
   display: block;
   width: 50%;
 }
+.back_btn{
+  display: block;
+  margin: 2rem auto 0 5%;
+}
 .start_main,
 .start_practice{
   display: block;
@@ -75,13 +80,42 @@ h1{
   width: 90%;
   margin: 0 auto;
 }
-
+.add_number_box{
+  height: 3rem;
+}
 .add_num{
   display: block;
   width: 80%;
+  height: 3rem;
   margin: 0 auto;
   text-align: center;
   font-size: 3rem;
+  animation-name: fadeIn;
+  animation-duration: 1s;
+}
+.add_num.fadeOut{
+  animation-name: fadeOut;
+  animation-duration: 3s;
+}
+
+@keyframes fadeIn{
+    0% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+}
+@keyframes fadeOut{
+    0% {
+        opacity:1;
+    }
+    100% {
+        opacity:0;
+    }
+}
+.time_box{
+  display: flex;
 }
 .active{
   display: block;
@@ -91,13 +125,29 @@ h1{
 }
 
 /*結果ページ start*/
-.result_message{
-  padding: 1rem;
+.result_head{
+  height: auto;
+}
+.show_type,
+.show_mode{
+  font-size: 2rem;
+}
+.result_page_title{
+  height: auto;
+  display: block;
 }
 .result_lead{
   display: block;
-  font-size: 1rem;
+  font-size: 4rem;
+  text-align: center;
 }
+.result_message{
+  display: block;
+  font-size: 1.2rem;
+  margin: 1rem 0;
+  padding: 0 1rem;
+}
+
 
 
 

@@ -38,7 +38,9 @@
       </div>
       <div class="game_play_block non_active">
         <span class="btn btn_start">スタート</span>
-        <span class="add_num"></span>
+        <div class="add_number_box">
+          <span class="add_num"></span>
+        </div>
         <input type="tel" name="ans"  class="ans_box">
         <span class="btn btn_next non_active">次の数字</span>
         <form action="/addition/result" th:object="${additionModel}" method="POST">
@@ -46,11 +48,16 @@
           <input type="hidden" th:field="*{correctArray}" id="correctArray">
           <input type="hidden" name="type" id="type" value="addition">
           <input type="hidden" th:field="*{mode}" id="mode">
+          <input type="hidden" th:field="*{time}" id="time">
           <input type="submit" class="btn btn_finish non_active" value="結果発表">
         </form>
       </div>
       <div class="back_btn_block non_active">
         <span class="back_btn btn">選び直す</span>
+      </div>
+      <div class="time_box non_active">
+        <span class="time_label">TIME:</span>
+        <span class="time_show">00'00'0</span>
       </div>
 
     </div>

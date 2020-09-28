@@ -12,11 +12,25 @@
     </header>
     <div class="main_design">
       <section>
-        <h1>結果発表</h1>
-        <p class="result_message">
+        <h1 class="result_head">
+          <span th:switch="${type}">
+            <span class="show_type" th:case="${key.ADDITION}" th:text="|${key.SHOW_ADDITION}|"></span>
+            <span class="show_type" th:case="${key.SUBTRACTION}" th:text="|${key.SHOW_SUBTRACTION}|"></span>
+            <span class="show_type" th:case="${key.MULTIPLICATION}" th:text="|${key.SHOW_MULTIPLICATION}|"></span>
+            <span class="show_type" th:case="${key.DIVISION}" th:text="|${key.SHOW_DIVISION}|"></span>
+          </span>
+          <span th:switch="${mode}">
+            <span class="show_mode" th:case="${key.GAME_MODE_NORMAL}" th:text="|${key.SHOW_GAME_MODE_NORMAL}モード|"></span>
+            <span class="show_mode" th:case="${key.GAME_MODE_TIMEATTACK}" th:text="|${key.SHOW_GAME_MODE_TIMEATTACK}モード|"></span>
+            <span class="show_mode" th:case="${key.GAME_MODE_HARD}" th:text="|${key.SHOW_GAME_MODE_HARD}モード|"></span>
+          </span>
+          <span class="result_page_title">結果発表</span>
+
+        </h1>
+        <p>
           <span th:text="${resultMessage}" class="result_lead"></span>
-          <span th:if="${result}==${key.RESULT_FOR_CORRECT}">次はもっと早くできるか挑戦しよう</span>
-          <span th:if="${result}==${key.RESULT_FOR_INCORRECT}">次はまちがえずに計算できるように挑戦しよう</span>
+          <span th:if="${result}==${key.RESULT_FOR_CORRECT}" class="result_message">次はもっと早くできるか挑戦しよう</span>
+          <span th:if="${result}==${key.RESULT_FOR_INCORRECT}" class="result_message">次はまちがえずに計算できるように挑戦しよう</span>
         </p>
       </section>
 
